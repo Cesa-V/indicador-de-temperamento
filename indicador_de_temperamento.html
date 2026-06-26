@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>O Temperamento que Deus lhe Deu</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fdf8f6',
+              100: '#f2e8e5',
+              600: '#8c4f3e',
+              700: '#733e30',
+              800: '#5c3024',
+              900: '#452118',
+            },
+            colerico: '#e11d48',
+            sanguineo: '#ca8a04',
+            melancolico: '#2563eb',
+            fleumatico: '#0d9488',
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .serif {
+      font-family: 'Playfair Display', serif;
+    }
+    /* Estilização da barra de rolagem para uma experiência fluida no celular */
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #e2e8f0;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-brand-50 text-slate-800 min-h-screen flex flex-col antialiased select-none">
+
+  <!-- BARRA SUPERIOR -->
+  <header class="bg-white border-b border-brand-100 shadow-sm sticky top-0 z-30">
+    <div class="max-w-3xl mx-auto px-4 h-14 sm:h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <svg class="w-5 h-5 sm:w-6 h-6 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg>
+        <span class="font-bold text-brand-900 tracking-tight text-xs sm:text-base">O Temperamento que Deus lhe Deu</span>
+      </div>
+      <div id="top-progress-container" class="hidden xs:flex items-center space-x-1.5 text-[10px] sm:text-xs text-brand-600 font-semibold bg-brand-50 px-2.5 py-1 rounded-full">
+        <span id="top-progress-text">0 / 232 Marcados</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow max-w-3xl w-full mx-auto px-3 py-4 sm:p-6 flex flex-col justify-center">
+
+    <!-- TELA DE BOAS-VINDAS -->
+    <div id="card-welcome" class="bg-white rounded-2xl p-5 sm:p-8 shadow-md border border-brand-100/50 space-y-5">
+      <div class="text-center space-y-2">
+        <span class="text-[10px] font-bold uppercase tracking-widest text-brand-600 bg-brand-100/60 px-3 py-1 rounded-full">Indicador de Temperamento</span>
+        <h1 class="text-2xl sm:text-3.5xl font-extrabold text-brand-900 serif leading-snug">O Temperamento que Deus lhe Deu</h1>
+        <p class="text-xs text-slate-500 italic">Baseado na obra de Art & Laraine Bennett</p>
+      </div>
+
+      <div class="border-t border-brand-100 pt-4 space-y-3.5 text-slate-600 text-xs sm:text-sm leading-relaxed">
+        <p class="font-bold text-brand-800 text-sm">Instruções Importantes:</p>
+        <p>
+          Selecione as opções que melhor descrevem as suas <strong>tendências habituais</strong> e padrões de reação naturais desde a infância.
+        </p>
+        <div class="bg-brand-50 p-4 rounded-xl border-l-4 border-brand-600 space-y-1.5 text-xs text-brand-800">
+          <p class="font-semibold">⚠️ Atenção ao responder:</p>
+          <p>Não escolha características apenas por considerá-las corretas ou desejáveis. Pense em como você reage espontaneamente ou no que seus amigos próximos e familiares diriam sobre você.</p>
+        </div>
+        <p>
+          O teste é composto por <strong>232 afirmações</strong> organizadas em 8 blocos de leitura rápida. Seu progresso será salvo de forma automática neste dispositivo.
+        </p>
+      </div>
+
+      <div class="pt-2 flex flex-col sm:flex-row gap-3 items-center justify-between">
+        <div class="text-[11px] text-slate-400">
+          Tempo estimado: 8 a 12 minutos.
+        </div>
+        <button onclick="startQuiz()" class="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 active:scale-[0.98] transition-transform text-white font-semibold px-6 py-3.5 rounded-xl shadow-lg shadow-brand-600/10 flex items-center justify-center space-x-2 text-sm">
+          <span>Iniciar Questionário</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- CARD DO QUESTIONÁRIO -->
+    <div id="card-quiz" class="hidden bg-white rounded-2xl shadow-md border border-brand-100/50 flex flex-col overflow-hidden max-h-[85vh] sm:max-h-none">
+      <!-- Painel de Progresso -->
+      <div class="bg-brand-50 border-b border-brand-100 p-3 sm:p-5 flex flex-col space-y-2">
+        <div class="flex justify-between items-center text-xs font-bold text-brand-900">
+          <span id="quiz-page-title" class="tracking-wide">Grupo 1 de 8</span>
+          <span id="quiz-checked-count" class="bg-white px-2.5 py-0.5 rounded-full border border-brand-100 text-brand-600 text-[11px]">0 de 232 marcados</span>
+        </div>
+        <div class="w-full bg-slate-200 rounded-full h-2 overflow-hidden">
+          <div id="progress-bar-fill" class="bg-brand-600 h-full rounded-full transition-all duration-300" style="width: 12.5%"></div>
+        </div>
+      </div>
+
+      <!-- Área de Perguntas com Rolagem Confortável no Celular -->
+      <div class="p-3 sm:p-5 flex-grow overflow-y-auto custom-scrollbar space-y-2 max-h-[50vh] sm:max-h-[60vh]" id="questions-list-container">
+        <!-- Perguntas geradas dinamicamente via JS -->
+      </div>
+
+      <!-- Barra de Ações Inferior Estilo App -->
+      <div class="bg-brand-50 border-t border-brand-100 p-3 sm:p-5 flex gap-3 justify-between items-center">
+        <button id="btn-prev" onclick="changePage(-1)" class="flex-1 sm:flex-initial px-4 py-3 border border-brand-100 bg-white text-slate-700 font-semibold rounded-xl hover:bg-slate-50 active:scale-[0.98] transition-transform flex items-center justify-center space-x-1.5 text-xs sm:text-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          <span>Anterior</span>
+        </button>
+        <button id="btn-next" onclick="changePage(1)" class="flex-1 sm:flex-initial px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl shadow-sm active:scale-[0.98] transition-transform flex items-center justify-center space-x-1.5 text-xs sm:text-sm">
+          <span>Avançar</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- TELA DE RESULTADOS -->
+    <div id="card-result" class="hidden space-y-4 sm:space-y-6">
+      
+      <!-- Painel Principal de Classificação -->
+      <div class="bg-white rounded-2xl p-4 sm:p-8 shadow-md border border-brand-100/50 space-y-6">
+        <div class="text-center space-y-1.5">
+          <span class="text-[10px] font-bold uppercase tracking-widest text-brand-600 bg-brand-100/60 px-3 py-1 rounded-full">Análise Final</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-900 serif">Seu Temperamento</h2>
+          <p class="text-slate-500 text-xs">Porcentagem de correspondência em cada perfil de reação física e mental</p>
+        </div>
+
+        <!-- Grelha Responsiva de Resultados (2 colunas em mobile, 4 em desktop) -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <!-- Colérico -->
+          <div class="border border-slate-100 rounded-xl p-3.5 text-center space-y-1 relative overflow-hidden bg-rose-50/10">
+            <div class="absolute top-0 inset-x-0 h-1 bg-colerico"></div>
+            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Colérico</p>
+            <p id="score-colerico" class="text-2xl font-black text-colerico">0</p>
+            <p class="text-[9px] text-slate-400">de 75 itens</p>
+            <div class="w-full bg-slate-100 rounded-full h-1 mt-1 overflow-hidden">
+              <div id="bar-colerico" class="bg-colerico h-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+          </div>
+          <!-- Sanguíneo -->
+          <div class="border border-slate-100 rounded-xl p-3.5 text-center space-y-1 relative overflow-hidden bg-yellow-50/10">
+            <div class="absolute top-0 inset-x-0 h-1 bg-sanguineo"></div>
+            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Sanguíneo</p>
+            <p id="score-sanguineo" class="text-2xl font-black text-sanguineo">0</p>
+            <p class="text-[9px] text-slate-400">de 82 itens</p>
+            <div class="w-full bg-slate-100 rounded-full h-1 mt-1 overflow-hidden">
+              <div id="bar-sanguineo" class="bg-sanguineo h-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+          </div>
+          <!-- Melancólico -->
+          <div class="border border-slate-100 rounded-xl p-3.5 text-center space-y-1 relative overflow-hidden bg-blue-50/10">
+            <div class="absolute top-0 inset-x-0 h-1 bg-melancolico"></div>
+            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Melancólico</p>
+            <p id="score-melancolico" class="text-2xl font-black text-melancolico">0</p>
+            <p class="text-[9px] text-slate-400">de 73 itens</p>
+            <div class="w-full bg-slate-100 rounded-full h-1 mt-1 overflow-hidden">
+              <div id="bar-melancolico" class="bg-melancolico h-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+          </div>
+          <!-- Fleumático -->
+          <div class="border border-slate-100 rounded-xl p-3.5 text-center space-y-1 relative overflow-hidden bg-teal-50/10">
+            <div class="absolute top-0 inset-x-0 h-1 bg-fleumatico"></div>
+            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Fleumático</p>
+            <p id="score-fleumatico" class="text-2xl font-black text-fleumatico">0</p>
+            <p class="text-[9px] text-slate-400">de 76 itens</p>
+            <div class="w-full bg-slate-100 rounded-full h-1 mt-1 overflow-hidden">
+              <div id="bar-fleumatico" class="bg-fleumatico h-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Par de Temperamento Dominante -->
+        <div class="bg-brand-50 p-5 rounded-2xl border border-brand-100 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
+          <div class="bg-brand-600 text-white rounded-xl p-3 flex flex-col items-center justify-center w-28 h-28 sm:w-32 sm:h-32 flex-shrink-0">
+            <span class="text-[9px] uppercase font-bold text-brand-100 tracking-wider">Primário</span>
+            <span id="primary-label" class="text-base font-black text-center mt-0.5">Colérico</span>
+            <div class="w-full border-t border-brand-100/30 my-1.5"></div>
+            <span class="text-[9px] uppercase font-semibold text-brand-100/80">Secundário</span>
+            <span id="secondary-label" class="text-xs font-bold text-center">Melancólico</span>
+          </div>
+          <div class="space-y-2 flex-grow text-center md:text-left">
+            <h3 class="text-lg font-bold text-brand-900 serif" id="combination-title">Combinação: Colérico - Melancólico</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" id="combination-desc">
+              Esta combinação une forças marcantes de ação, reflexão e liderança espiritual ou profissional profunda. Abaixo você encontra uma análise detalhada sobre o que esses dados revelam.
+            </p>
+          </div>
+        </div>
+
+        <!-- Descrições Detalhadas -->
+        <div class="space-y-3">
+          <h3 class="text-base font-bold text-brand-900 serif border-b border-brand-100 pb-1.5">Sobre os seus dois temperamentos principais:</h3>
+          <div id="description-blocks" class="space-y-3.5 text-xs sm:text-sm leading-relaxed text-slate-600">
+            <!-- Gerado via JS -->
+          </div>
+        </div>
+
+        <!-- Ações do Resultado -->
+        <div class="border-t border-brand-100 pt-5 flex flex-col sm:flex-row gap-3 justify-between items-center">
+          <button onclick="confirmReset()" class="w-full sm:w-auto px-5 py-3 text-brand-600 border border-brand-100 bg-white font-semibold rounded-xl hover:bg-slate-50 transition-colors active:scale-95 text-xs">
+            Refazer Questionário
+          </button>
+          <button onclick="copyToClipboard()" class="w-full sm:w-auto px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl transition-all active:scale-95 text-xs flex items-center justify-center space-x-2 shadow-md shadow-brand-600/10">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+            <span>Copiar Resultados</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Caixa de Dica de Espiritualidade -->
+      <div class="bg-amber-50/40 rounded-2xl p-4 sm:p-5 border border-amber-200/50 text-amber-900 space-y-2">
+        <h4 class="font-bold text-xs uppercase tracking-wider flex items-center space-x-1.5">
+          <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>Crescimento Pessoal & Espiritual</span>
+        </h4>
+        <p class="text-xs leading-relaxed">
+          Deus criou cada um de nós com um temperamento único para cooperarmos com a Sua Graça. Compreender as virtudes espontâneas e os desafios inerentes de cada perfil é o primeiro passo para o verdadeiro autoconhecimento e para a melhoria das nossas relações diárias.
+        </p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="bg-white border-t border-brand-100 py-4 mt-8">
+    <div class="max-w-3xl mx-auto px-4 text-center space-y-1">
+      <p class="text-[10px] text-slate-400">
+        Desenvolvido em total conformidade com o livro "O Temperamento que Deus lhe Deu".
+      </p>
+      <p class="text-[10px] text-slate-400">
+        Suas escolhas permanecem privadas e são salvas exclusivamente de forma local no seu navegador.
+      </p>
+    </div>
+  </footer>
+
+  <!-- MODAL DE CONFIRMAÇÃO PERSONALIZADO (Substitui o alert/confirm do browser que é ruim no celular) -->
+  <div id="confirm-modal" class="hidden fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 transition-all duration-300">
+    <div class="bg-white rounded-2xl max-w-sm w-full p-5 space-y-4 shadow-xl transform scale-95 transition-transform duration-300">
+      <div class="text-center space-y-2">
+        <div class="w-10 h-10 bg-rose-50 rounded-full flex items-center justify-center mx-auto text-rose-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+        </div>
+        <h3 class="text-base font-bold text-slate-900">Reiniciar o Teste?</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">Esta ação irá apagar todas as respostas salvas até o momento. Deseja continuar?</p>
+      </div>
+      <div class="flex gap-2.5">
+        <button onclick="closeConfirmModal()" class="flex-1 py-2.5 border border-slate-200 text-slate-700 font-semibold rounded-xl text-xs active:scale-95 transition-transform">
+          Cancelar
+        </button>
+        <button onclick="resetQuizConfirmed()" class="flex-1 py-2.5 bg-rose-600 text-white font-semibold rounded-xl text-xs active:scale-95 transition-transform">
+          Sim, Reiniciar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTIFICAÇÃO (TOAST) -->
+  <div id="toast" class="fixed bottom-6 right-6 bg-slate-950 text-white px-4 py-3 rounded-xl shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 z-50 flex items-center space-x-2 text-xs">
+    <span id="toast-message">Copiado para a área de transferência!</span>
+  </div>
+
+  <!-- CÓDIGO DO APLICATIVO -->
+  <script>
+    // Tabelas de mapeamento exatas da pág. 9 do livro
+    const scoring = {
+      colerico: [1, 3, 5, 8, 11, 14, 15, 25, 30, 36, 37, 38, 42, 43, 44, 50, 53, 54, 56, 60, 66, 67, 73, 81, 83, 84, 86, 90, 92, 96, 105, 108, 112, 115, 116, 117, 118, 121, 123, 124, 125, 127, 130, 132, 133, 134, 135, 138, 140, 143, 144, 154, 155, 156, 157, 158, 167, 168, 172, 176, 177, 183, 191, 192, 194, 196, 200, 207, 209, 213, 218, 219, 222, 224, 227],
+      sanguineo: [1, 3, 5, 9, 10, 11, 14, 17, 18, 23, 26, 29, 30, 32, 36, 37, 38, 41, 43, 46, 47, 48, 49, 50, 56, 59, 68, 69, 71, 76, 77, 79, 80, 82, 87, 89, 91, 92, 93, 94, 95, 104, 107, 110, 112, 113, 114, 116, 117, 118, 120, 121, 129, 131, 136, 138, 139, 142, 144, 145, 146, 148, 149, 152, 157, 159, 160, 161, 175, 178, 179, 180, 203, 206, 212, 214, 220, 223, 226, 228, 230, 231],
+      melancolico: [2, 7, 8, 12, 13, 16, 19, 20, 21, 22, 24, 27, 28, 31, 33, 34, 39, 40, 42, 48, 51, 52, 54, 57, 62, 63, 70, 72, 73, 74, 75, 78, 79, 80, 81, 88, 98, 99, 101, 106, 109, 111, 122, 131, 133, 141, 150, 151, 153, 159, 163, 165, 166, 170, 173, 176, 181, 182, 184, 186, 187, 190, 193, 197, 202, 204, 208, 210, 215, 216, 221, 222, 227],
+      fleumatico: [2, 4, 6, 9, 10, 21, 26, 28, 30, 31, 35, 39, 45, 52, 55, 58, 61, 63, 64, 65, 68, 70, 72, 75, 78, 85, 88, 97, 98, 100, 102, 103, 106, 107, 110, 111, 113, 119, 122, 126, 128, 129, 131, 137, 139, 147, 153, 160, 162, 166, 169, 171, 173, 174, 175, 185, 186, 188, 189, 195, 198, 199, 201, 204, 205, 206, 210, 211, 215, 217, 219, 221, 225, 226, 228, 232]
+    };
+
+    // Coleção de características originais conforme traduzidas no livro (Ajustado para PT-BR moderno)
+    const rawTraits = [
+      "Reajo rapidamente quando me apresentam uma ideia, uma pessoa ou situação",
+      "Reajo lentamente quando me apresentam uma ideia, pessoa ou situação",
+      "Reajo fortemente (em intensidade) quando apresentado a uma ideia, pessoa ou situação",
+      "Não reajo intensamente quando me deparo com uma ideia, pessoa ou situação",
+      "Quero tomar uma atitude imediata em relação a uma ideia, situação ou pessoa",
+      "Quando lhe são apresentadas uma ideia, uma pessoa ou uma situação, você mantém a calma e espera para reagir",
+      "Não reajo inicialmente, mas minha reação cresce gradualmente em intensidade",
+      "As impressões duram muito tempo",
+      "As impressões duram pouco tempo (duração da reação)",
+      "Tolerante",
+      "Aventureiro",
+      "\"Preocupa-se com tudo\"",
+      "Introspectivo",
+      "Facilmente provocado",
+      "Se provocado, retaliará",
+      "Sério",
+      "Aprecia a bajulação",
+      "Inclinado a bajular",
+      "Cuidadoso",
+      "Interno",
+      "Introvertido",
+      "Detalhista",
+      "Distraível",
+      "Propenso a reflexão",
+      "Determinado",
+      "Confiável",
+      "Rancoroso",
+      "Independente",
+      "Ama companhia",
+      "Aprecia as pessoas",
+      "Indeciso",
+      "Interage facilmente com as pessoas",
+      "Irritado com a desordem",
+      "Abomina a injustiça",
+      "Justo",
+      "Facilmente irritável",
+      "Entusiasmado",
+      "Extrovertido",
+      "Solitário",
+      "Cético",
+      "Centro das atenções",
+      "Vingativo",
+      "Exagera facilmente",
+      "Assume a liderança",
+      "Líder serviente",
+      "Carismático",
+      "Invejoso",
+      "Ciumento",
+      "Feliz",
+      "Otimista",
+      "Propenso a doenças",
+      "Facilmente desencorajado",
+      "Cabeça dura",
+      "Racional",
+      "Diplomático",
+      "Tende a falar sem pensar",
+      "Desconfiado",
+      "Pacífico",
+      "Criativo",
+      "Assume o controle",
+      "Paciente",
+      "Crítico",
+      "Ama a paz e a tranquilidade",
+      "Zeloso",
+      "Odeia conflitos",
+      "Ama o debate",
+      "Argumentativo",
+      "Sentimental",
+      "Agrada a multidão",
+      "Lento para se animar",
+      "Faz amigos facilmente",
+      "Reticente",
+      "Lógico",
+      "Ponderado",
+      "Ama o silêncio",
+      "Gosta de moda",
+      "Desfruta de festas",
+      "Prefere ficar sozinho",
+      "Artístico",
+      "Poético",
+      "Pensador",
+      "Falador",
+      "Abomina sentimentalismo",
+      "Não é empático",
+      "Orientado a regras",
+      "Perseverante",
+      "Galanteador",
+      "Reservado",
+      "Desliza facilmente para a fofoca",
+      "Sempre certo",
+      "Aparência é importante",
+      "Pessoa com ideias",
+      "Falta de continuidade",
+      "Variedade de amor",
+      "Carinhoso",
+      "Não demonstra afeto",
+      "Indiferente",
+      "Indeciso",
+      "Difícil de agradar",
+      "Sóbrio e prático",
+      "Instável de humor (de lua)",
+      "Sereno",
+      "Cuidadoso",
+      "Brincalhão",
+      "Obstinado",
+      "Pessimista",
+      "Tolerante",
+      "Corajoso",
+      "Tímido",
+      "\"Perdoe e esqueça\"",
+      "\"Vamos esperar para ver\"",
+      "Cabeça quente",
+      "Prefere seguir",
+      "Precipitado",
+      "Intenso",
+      "De temperamento rápido",
+      "Franco",
+      "Impaciente",
+      "Equilibrado",
+      "Volúvel",
+      "Copo meio cheio",
+      "Copo meio vazio",
+      "Intimidador",
+      "Prontidão para aproveitar oportunidades",
+      "Pavio curto",
+      "Educado",
+      "Facilmente despertado para o debate",
+      "Internamente pacífico",
+      "Bem-humorado",
+      "Interrompe",
+      "\"Em sintonia com os sentimentos dos outros\"",
+      "Força de vontade",
+      "Do contra",
+      "Destemido",
+      "Ambicioso",
+      "Alegre",
+      "Autocompostura",
+      "Orientado para a ação",
+      "Confortável em fazer parte de um grupo",
+      "Prefere se encarregar de um grupo",
+      "Tem antipatia por grupos",
+      "Sociável",
+      "Rápido e decisivo",
+      "Robusto",
+      "Cordial",
+      "Gosta de mudança",
+      "Prefere a rotina",
+      "Aberto e sociável",
+      "Curioso",
+      "Crítico",
+      "Foco nos problemas",
+      "Impulsivo",
+      "Metódico",
+      "Atrevido",
+      "Toma a iniciativa",
+      "Insistente com o próprio plano",
+      "Autoconfiante",
+      "Autossuficiente",
+      "Sensível",
+      "Machuca-se facilmente",
+      "Tendência a ficar na superfície",
+      "Adaptável",
+      "Recluso",
+      "Autoconsciente",
+      "Excessivamente cauteloso",
+      "Tende a desanimar",
+      "Exclusivo",
+      "Privado",
+      "Mediador",
+      "Indeciso",
+      "Constante",
+      "Competitivo",
+      "Abnegado",
+      "Respeitoso",
+      "Adaptável",
+      "Analítico",
+      "Persistente",
+      "Brincalhão",
+      "Ri facilmente",
+      "Espontâneo",
+      "Hesitante",
+      "Planeja-se bem",
+      "Direto",
+      "Ordenado",
+      "Prestativo",
+      "Fiel",
+      "Idealista",
+      "Inofensivo",
+      "Humor seco",
+      "Profundo",
+      "Empreendedor",
+      "Motivador",
+      "Atento aos outros",
+      "Mandão",
+      "Bem-comportado",
+      "Voluntarioso",
+      "Perfeccionista",
+      "Pacificador",
+      "Imparcial",
+      "Controlador",
+      "Calmo sob pressão",
+      "Espiritual",
+      "Entusiasmado",
+      "Pensativo",
+      "Procrastina",
+      "Dócil",
+      "Teimoso",
+      "Requer descanso",
+      "Exige reconhecimento",
+      "Precisa de incentivo",
+      "Precisa de motivação",
+      "Precisa de amigos",
+      "Focado e intenso",
+      "Precisa de diversão",
+      "Desfruta de estrutura, procedimentos",
+      "Precisa de elevação",
+      "Não-confrontador",
+      "Confrontativo",
+      "Pragmático",
+      "Inconstante",
+      "Desconfia de novas situações",
+      "Foco singular",
+      "Gosta de fazer compras e comer fora",
+      "Empolgado",
+      "Subjugará desejos próprios para agradar aos outros",
+      "Orientado a processos",
+      "Orientado a objetivos",
+      "Confortável no momento presente",
+      "Orientado para o futuro",
+      "Sociável",
+      "Piadista",
+      "Caseiro"
+    ];
+
+    // Informação dos perfis de temperamento para o relatório final
+    const descriptions = {
+      colerico: {
+        title: "Colérico",
+        desc: "O Colérico é orientado a metas, dinâmico e tem facilidade natural para liderar. Reage de forma rápida e intensa aos acontecimentos, guardando impressões duradouras. Gosta de desafios e de debater ideias. Do ponto de vista de crescimento interior, o colérico deve focar no desenvolvimento da humildade, paciência, docilidade e compaixão pelos outros.",
+        color: "text-colerico"
+      },
+      sanguineo: {
+        title: "Sanguíneo",
+        desc: "O Sanguíneo é sociável, entusiasta, comunicativo e focado nas pessoas. Reage de forma rápida e enérgica, contudo, as suas impressões duram pouco tempo no coração. Vive no presente, adora novidades e anima ambientes. O seu foco de crescimento envolve o desenvolvimento da constância, fidelidade aos deveres de rotina e autodisciplina.",
+        color: "text-sanguineo"
+      },
+      melancolico: {
+        title: "Melancólico",
+        desc: "O Melancólico é profundo, reflexivo, artístico, analítico e leal. A sua reação inicial é lenta, mas cresce gradualmente de intensidade e dura muito tempo na memória. Valoriza a ordem, a verdade e a beleza. Para crescer interiormente, deve perseverar contra o desânimo e a timidez, cultivando a esperança, a alegria e evitando o perfeccionismo excessivo.",
+        color: "text-melancolico"
+      },
+      fleumatico: {
+        title: "Fleumático",
+        desc: "O Fleumático é pacífico, calmo, diplomático e muito confiável. Reage de forma lenta e pouco intensa, mantendo o autocontrole mesmo em situações tensas. Evita conflitos e sabe escutar. O seu caminho de aprimoramento consiste em vencer a inércia e a passividade, exercitando a força de vontade, a iniciativa própria e a generosidade ativa.",
+        color: "text-fleumatico"
+      }
+    };
+
+    // Tabela das combinações de temperamentos primários e secundários
+    const combinations = {
+      "colerico-sanguineo": "Líder natural, dinâmico e extremamente comunicativo. Une a eficácia decisiva do colérico com a facilidade social do sanguíneo.",
+      "colerico-melancolico": "Foco profundo na excelência e na execução de tarefas. Une a intensidade realizadora do colérico com a reflexão analítica e perfeccionista do melancólico.",
+      "colerico-fleumatico": "Líder estável e estratégico. O colérico impulsiona a execução enquanto o fleumático ajuda a manter o ambiente pacífico sob pressão.",
+      "sanguineo-colerico": "Entusiasta, carismático e empreendedor rápido. Inspira equipes com facilidade e reage instantaneamente a novas oportunidades de ação.",
+      "sanguineo-melancolico": "Sensibilidade artística e social aguçada. É muito caloroso com as pessoas, mas esconde em si momentos de profunda reflexão e sentimentos intensos.",
+      "sanguineo-fleumatico": "Altamente sociável, simpático e amigável. É o pacificador caloroso que se adapta a todos com facilidade, preferindo ambientes divertidos e calmos.",
+      "melancolico-colerico": "Trabalhador focado no ideal e na verdade prática. Analisa os detalhes em busca da justiça e age com determinação para implementá-los.",
+      "melancolico-sanguineo": "União de mente profunda e expressão sociável calorosa. Pode ser de lua, mas tem muita empatia e sensibilidade para com a dor dos outros.",
+      "melancolico-fleumatico": "Cuidadoso, metódico e profundamente fiel aos seus deveres. Valoriza o silêncio, a paz, a organização e reage com ponderação extrema.",
+      "fleumatico-colerico": "O pacificador eficiente. Trabalha silenciosamente mas entrega resultados precisos, utilizando pragmatismo sem agressividade.",
+      "fleumatico-sanguineo": "Extremamente dócil, sociável e equilibrado. Convive bem com todos, é adaptável e prefere a tranquilidade do dia a dia, evitando atritos.",
+      "fleumatico-melancolico": "Calmo, analítico e pacífico. Excelente ouvinte, prudente, confiável e focado em resolver problemas com muita paciência."
+    };
+
+    // Variáveis de Estado
+    let currentAnswers = {};
+    let currentPage = 0;
+    const itemsPerPage = 29; 
+    const totalItems = 232;
+
+    // Carregar respostas salvas localmente
+    try {
+      const saved = localStorage.getItem('temperamentos_answers');
+      if (saved) {
+        currentAnswers = JSON.parse(saved);
+      }
+    } catch (e) {
+      console.warn("Storage local inacessível. Rodando em memória temporária.", e);
+    }
+
+    // Inicializar no carregamento da tela
+    window.onload = function() {
+      updateProgressUI();
+    };
+
+    function showSection(id) {
+      document.getElementById('card-welcome').classList.add('hidden');
+      document.getElementById('card-quiz').classList.add('hidden');
+      document.getElementById('card-result').classList.add('hidden');
+      document.getElementById(id).classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function startQuiz() {
+      showSection('card-quiz');
+      renderPage();
+    }
+
+    // Renderizar página de perguntas
+    function renderPage() {
+      const startIndex = currentPage * itemsPerPage;
+      const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
+      
+      document.getElementById('quiz-page-title').innerText = `Grupo ${currentPage + 1} de 8`;
+      
+      const container = document.getElementById('questions-list-container');
+      container.innerHTML = '';
+
+      for (let i = startIndex; i < endIndex; i++) {
+        const itemNumber = i + 1;
+        const text = rawTraits[i];
+        const isChecked = !!currentAnswers[itemNumber];
+
+        const itemDiv = document.createElement('div');
+        // Classe select-none e padding generoso otimizado para toque no celular
+        itemDiv.className = `flex items-center space-x-3.5 p-3.5 sm:p-4 rounded-xl cursor-pointer transition-all active:scale-[0.98] border select-none ${
+          isChecked 
+            ? 'bg-brand-100/50 border-brand-600/40 text-brand-900 font-medium' 
+            : 'bg-white border-slate-100 hover:border-brand-100 hover:bg-slate-50/50'
+        }`;
+        itemDiv.setAttribute('onclick', `toggleItem(${itemNumber})`);
+        itemDiv.setAttribute('id', `item-box-${itemNumber}`);
+
+        itemDiv.innerHTML = `
+          <div class="flex items-center h-5">
+            <input 
+              id="checkbox-${itemNumber}" 
+              type="checkbox" 
+              ${isChecked ? 'checked' : ''} 
+              class="w-5 h-5 rounded border-slate-300 text-brand-600 focus:ring-0 focus:ring-offset-0 pointer-events-none transition"
+            >
+          </div>
+          <div class="flex-grow min-w-0">
+            <span class="text-[10px] text-brand-600/75 font-semibold block leading-none mb-1">Item ${itemNumber}</span>
+            <p class="text-xs sm:text-sm text-slate-800 leading-tight break-words">${text}</p>
+          </div>
+        `;
+        container.appendChild(itemDiv);
+      }
+
+      // Atualizar botões de controle
+      document.getElementById('btn-prev').style.visibility = currentPage === 0 ? 'hidden' : 'visible';
+      const isLast = currentPage === 7;
+      document.getElementById('btn-next').innerHTML = isLast 
+        ? '<span>Ver Resultado</span> <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>'
+        : '<span>Avançar</span> <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>';
+
+      updateProgressUI();
+      // Rolar a lista de perguntas suavemente de volta ao topo ao trocar de página
+      container.scrollTop = 0;
+    }
+
+    // Alternar seleção do item
+    function toggleItem(num) {
+      currentAnswers[num] = !currentAnswers[num];
+      if (!currentAnswers[num]) {
+        delete currentAnswers[num];
+      }
+
+      // Salvar progresso localmente
+      try {
+        localStorage.setItem('temperamentos_answers', JSON.stringify(currentAnswers));
+      } catch (e) {}
+
+      // Atualizar estado visual imediatamente de forma fluida
+      const box = document.getElementById(`item-box-${num}`);
+      const checkbox = document.getElementById(`checkbox-${num}`);
+      if (box && checkbox) {
+        const isChecked = !!currentAnswers[num];
+        checkbox.checked = isChecked;
+        if (isChecked) {
+          box.className = 'flex items-center space-x-3.5 p-3.5 sm:p-4 rounded-xl cursor-pointer transition-all active:scale-[0.98] border select-none bg-brand-100/50 border-brand-600/40 text-brand-900 font-medium';
+        } else {
+          box.className = 'flex items-center space-x-3.5 p-3.5 sm:p-4 rounded-xl cursor-pointer transition-all active:scale-[0.98] border select-none bg-white border-slate-100 hover:border-brand-100 hover:bg-slate-50/50';
+        }
+      }
+
+      updateProgressUI();
+    }
+
+    // Atualizar indicadores de progresso
+    function updateProgressUI() {
+      const checkedCount = Object.keys(currentAnswers).length;
+      
+      const countLabel = `${checkedCount} de 232 marcados`;
+      const pText = document.getElementById('quiz-checked-count');
+      if (pText) pText.innerText = countLabel;
+
+      const topProgressText = document.getElementById('top-progress-text');
+      if (topProgressText) topProgressText.innerText = `${checkedCount} / 232 marcados`;
+
+      const topProgressContainer = document.getElementById('top-progress-container');
+      if (topProgressContainer) {
+        if (checkedCount > 0) {
+          topProgressContainer.classList.remove('hidden');
+        } else {
+          topProgressContainer.classList.add('hidden');
+        }
+      }
+
+      // Cálculo do preenchimento da barra de progresso
+      const progressPercent = ((currentPage + 1) / 8) * 100;
+      const barFill = document.getElementById('progress-bar-fill');
+      if (barFill) barFill.style.width = `${progressPercent}%`;
+    }
+
+    // Mudança de página (Grupos de 29)
+    function changePage(direction) {
+      if (direction === -1 && currentPage > 0) {
+        currentPage--;
+        renderPage();
+      } else if (direction === 1) {
+        if (currentPage < 7) {
+          currentPage++;
+          renderPage();
+        } else {
+          calculateResults();
+        }
+      }
+    }
+
+    // Cálculo estatístico final do temperamento primário e secundário
+    function calculateResults() {
+      const scores = { colerico: 0, sanguineo: 0, melancolico: 0, fleumatico: 0 };
+
+      for (const [tempName, list] of Object.entries(scoring)) {
+        list.forEach(num => {
+          if (currentAnswers[num]) {
+            scores[tempName]++;
+          }
+        });
+      }
+
+      // Exibir pontuações
+      document.getElementById('score-colerico').innerText = scores.colerico;
+      document.getElementById('score-sanguineo').innerText = scores.sanguineo;
+      document.getElementById('score-melancolico').innerText = scores.melancolico;
+      document.getElementById('score-fleumatico').innerText = scores.fleumatico;
+
+      // Atualizar barras de progresso (Mapeadas de acordo com as quantidades máximas originais)
+      document.getElementById('bar-colerico').style.width = `${(scores.colerico / 75) * 100}%`;
+      document.getElementById('bar-sanguineo').style.width = `${(scores.sanguineo / 82) * 100}%`;
+      document.getElementById('bar-melancolico').style.width = `${(scores.melancolico / 73) * 100}%`;
+      document.getElementById('bar-fleumatico').style.width = `${(scores.fleumatico / 76) * 100}%`;
+
+      // Obter Primário e Secundário ordenados
+      const sortedTemps = Object.keys(scores).map(key => ({ name: key, value: scores[key] }));
+      sortedTemps.sort((a, b) => b.value - a.value);
+
+      const primary = sortedTemps[0].name;
+      const secondary = sortedTemps[1].name;
+
+      const labelMap = { colerico: "Colérico", sanguineo: "Sanguíneo", melancolico: "Melancólico", fleumatico: "Fleumático" };
+      
+      document.getElementById('primary-label').innerText = labelMap[primary];
+      document.getElementById('secondary-label').innerText = labelMap[secondary];
+
+      const combKey = `${primary}-${secondary}`;
+      const defaultDesc = `A combinação de ${labelMap[primary]} com ${labelMap[secondary]} indica um perfil rico e balanceado. Veja o resumo detalhado de cada perfil para compreender a si mesmo.`;
+      
+      document.getElementById('combination-title').innerText = `Combinação: ${labelMap[primary]} - ${labelMap[secondary]}`;
+      document.getElementById('combination-desc').innerText = combinations[combKey] || defaultDesc;
+
+      // Injetar blocos de descrição
+      const descContainer = document.getElementById('description-blocks');
+      descContainer.innerHTML = '';
+
+      // Primário
+      const block1 = document.createElement('div');
+      block1.className = "bg-brand-50 p-4 rounded-xl border border-brand-100/60 space-y-2";
+      block1.innerHTML = `
+        <h4 class="font-bold text-xs sm:text-sm text-brand-900 serif flex items-center space-x-1.5">
+          <span class="w-2 h-2 rounded-full bg-brand-600"></span>
+          <span>Como Perfil Primário: ${labelMap[primary]}</span>
+        </h4>
+        <p class="text-xs leading-relaxed text-slate-700">${descriptions[primary].desc}</p>
+      `;
+      descContainer.appendChild(block1);
+
+      // Secundário
+      const block2 = document.createElement('div');
+      block2.className = "bg-slate-50 p-4 rounded-xl border border-slate-200/50 space-y-2";
+      block2.innerHTML = `
+        <h4 class="font-bold text-xs sm:text-sm text-slate-800 serif flex items-center space-x-1.5">
+          <span class="w-2 h-2 rounded-full bg-slate-500"></span>
+          <span>Como Perfil Secundário: ${labelMap[secondary]}</span>
+        </h4>
+        <p class="text-xs leading-relaxed text-slate-700">${descriptions[secondary].desc}</p>
+      `;
+      descContainer.appendChild(block2);
+
+      showSection('card-result');
+    }
+
+    // Modal de confirmação para reiniciar
+    function confirmReset() {
+      const modal = document.getElementById('confirm-modal');
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        modal.querySelector('div').classList.remove('scale-95');
+        modal.querySelector('div').classList.add('scale-100');
+      }, 50);
+    }
+
+    function closeConfirmModal() {
+      const modal = document.getElementById('confirm-modal');
+      modal.querySelector('div').classList.add('scale-95');
+      modal.querySelector('div').classList.remove('scale-100');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 150);
+    }
+
+    function resetQuizConfirmed() {
+      closeConfirmModal();
+      currentAnswers = {};
+      currentPage = 0;
+      try {
+        localStorage.removeItem('temperamentos_answers');
+      } catch (e) {}
+      showSection('card-welcome');
+      updateProgressUI();
+    }
+
+    // Copiar resultados de forma responsiva para compartilhamento móvel rápido
+    function copyToClipboard() {
+      const col = document.getElementById('score-colerico').innerText;
+      const san = document.getElementById('score-sanguineo').innerText;
+      const mel = document.getElementById('score-melancolico').innerText;
+      const fle = document.getElementById('score-fleumatico').innerText;
+
+      const pri = document.getElementById('primary-label').innerText;
+      const sec = document.getElementById('secondary-label').innerText;
+      const comb = document.getElementById('combination-title').innerText;
+
+      const textToCopy = `📝 O MEU RESULTADO: O TEMPERAMENTO QUE DEUS LHE DEU
+      
+* ${comb}
+* Perfil Primário: ${pri}
+* Perfil Secundário: ${sec}
+
+Pontuações detalhadas:
+- Colérico: ${col}/75
+- Sanguíneo: ${san}/82
+- Melancólico: ${mel}/73
+- Fleumático: ${fle}/76
+
+Descubra o seu temperamento também!`;
+
+      // Estrutura de cópia robusta para iframe e celular
+      const textarea = document.createElement('textarea');
+      textarea.value = textToCopy;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      
+      try {
+        document.execCommand('copy');
+        showToast("Resultados copiados com sucesso!");
+      } catch (err) {
+        showToast("Erro ao copiar os resultados.");
+      }
+      
+      document.body.removeChild(textarea);
+    }
+
+    // Notificação Toast
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      toastMsg.innerText = msg;
+      
+      toast.classList.remove('opacity-0', 'translate-y-20');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-20');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
